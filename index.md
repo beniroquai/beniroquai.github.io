@@ -1,5 +1,7 @@
 # cellSTORM 2 
 
+A low-cost superresolution imaging device based on a cellphone camera and photonic waveguide chips
+
 ---
 
 ## Abstract 
@@ -8,6 +10,11 @@ In microscopic imaging, where an optimum between high throughput, high resolutio
 Combining this with recent advances of low cost and off-the-shelf components like cellphone cameras, entertainment lasers and optical-pickups (OPU), we built the first 3D printed microscope which can perform dSTORM measurements for an overall price of <1000€ fitting on the palm of hand. Using fluctuation-based SR methods like ESI or MUSCAL, this device can also perform inexpensive TIRF experiments in living environments (i.e. incubator). We show dSTORM results of fixed HeLa and HUVEC cells labeled with Alexa Fluo 647® to give a proof-of-principle for a change in paradigm – science for a dime. 
 With a lateral resolution of about 100nm, an axial sectioning of 150nm and a FOV of 400x400µm2 this device gives a new tool to biologists to study cell dynamics on the cheap. All sources and design files are shared in an online repository to attempt democratization in scientific research and make cutting-edge research not only available but also affordable. 
 Additionally we show the recent advances in the open-source toolbox UC2 which not only is good for out-reach activities in STEM-research but paving the way to democratize super-resolution microscopy. 
+
+
+## Temporal superresolution imaging
+
+Using SRRF from the Henrique lab it's possible to quickly increase the resolution even without complicated STORM protocols:
 <p align="center">
 <img src="./images/image_1.png" width="500">
 </p>
@@ -18,13 +25,46 @@ If you want to replicate the device, you can find a detailed description with al
 
 [CAD-Repository](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD)
 
+We now also have a pictures tutorial with a step-by-step guide on how to build the cellSTORM microscope [here](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD)
+
 
 ## Android APP: STORM-Controler 
 
-
 To control the Lens or Laser using a customized MQTT controler APP, you can visit this repository:
 
-[APP: SOTRM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)
+[APP: STORM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)
+
+This app allows basic hardware controls:
+<p align="center">
+<img src="./images/cellSTORM_app.png" width="200">
+</p>
+
+## Android APP: STORM-Imager
+
+This is the APP which can record images, control the device and predict a super-resolved result form the camera live stream. The APP can be found here:
+
+[APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)
+
+## Android APP: FreeDCam (cellSTORM module)
+
+
+
+### Autofocus inside the APP:
+
+It's just an example how the cellphone maintains the focus. This is done by maximizing the focus metric (i.e. standard deviation over z) as a function of the focus motor position. 
+
+<p align="center">
+<img src="./images/autofocus.gif" width="300">
+</p>
+
+### SOFI-based superresolution imaging inside the APP:
+
+This is an example of the SOFI-based superresolution imaging using the neural network mentioned below. We used fixed *e.coli* labelled with ATTO 647.
+The fluctuation of the illumination is the result of the discrete mode pattern in the singlemode waveguide chip. The input field changes the intensity pattern.   
+
+<p align="center">
+<img src="./images/ondevicesr.gif" width="300">
+</p>
 
 
 ## Learn2Fluct
@@ -47,15 +87,17 @@ into high resolution images:
 
 
 
-## Android APP: STORM-Imager
-
-This is the APP which can record images, control the device and predict a super-resolved result form the camera live stream. The APP can be found here:
-
-[APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)
 
 ## Electronics and Code
 
 To move the lenses or control the Laser intensity, we relied on Espressife EPS32s. The code to control them wirelessly using MQTT can be found here:
 
-[APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ESP32)
+[cellSTORM Electronics](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ESP32)
 
+## Contribute
+
+If you have a question or found an error, please file an issue! We are happy to improve the device!  
+
+# Disclaimer
+
+We do not give any warranty for the proposed setup. Please use at your own risk. Keep in mind that Laser source can be very harmful to your eye and your environemnt! 
