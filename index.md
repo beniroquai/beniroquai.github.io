@@ -11,10 +11,33 @@ Combining this with recent advances of low cost and off-the-shelf components lik
 With a lateral resolution of about 100nm, an axial sectioning of 150nm and a FOV of 400x400µm2 this device gives a new tool to biologists to study cell dynamics on the cheap. All sources and design files are shared in an online repository to attempt democratization in scientific research and make cutting-edge research not only available but also affordable. 
 Additionally we show the recent advances in the open-source toolbox UC2 which not only is good for out-reach activities in STEM-research but paving the way to democratize super-resolution microscopy. 
 
+## cellSTORM II 
+
+The compact device features:
+
+```
+- autofocus
+- automatic coupling mechanism
+- on-device superresolution imaging
+- survives cell incubators for several days
+- performs autonomous imaging over several days 
+- costs <1000€
+- optical resolution down to 100nm
+- multiple wavelength can be used (sequentially) 
+- using photonic waveguide chips TIRF is possible
+```
+
+
+<p align="center">
+<img src="./images/cellSTORM_v5.png" width="500">
+</p>
+
+
 
 ## Temporal superresolution imaging
 
 Using SRRF from the Henrique lab it's possible to quickly increase the resolution even without complicated STORM protocols:
+
 <p align="center">
 <img src="./images/image_1.png" width="500">
 </p>
@@ -25,7 +48,7 @@ If you want to replicate the device, you can find a detailed description with al
 
 [CAD-Repository](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD)
 
-We now also have a pictures tutorial with a step-by-step guide on how to build the cellSTORM microscope [here](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD)
+We now also have a pictures tutorial with a step-by-step guide on how to build the cellSTORM microscope [here](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD#assembly)
 
 
 ## Android APP: STORM-Controler 
@@ -45,9 +68,6 @@ This is the APP which can record images, control the device and predict a super-
 
 [APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)
 
-## Android APP: FreeDCam (cellSTORM module)
-
-
 
 ### Autofocus inside the APP:
 
@@ -65,6 +85,17 @@ The fluctuation of the illumination is the result of the discrete mode pattern i
 <p align="center">
 <img src="./images/ondevicesr.gif" width="300">
 </p>
+
+## Android APP: FreeDCam (cellSTORM module)
+
+For the *d*STORM experiments we used the open source APP [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) originally developed and mainted by [killerink](https://github.com/KillerInk/FreeDcam). We provide a modified version for the Huawei P9 and P20 which is used in this work. It enables 
+
+1. fast read-out and saving of cropped RAW frames to the SD-cad
+2. stream the RAW buffer to a c-server 
+
+To stream the data to a server [this manual](https://github.com/beniroquai/FreeDcam/tree/cellstorm/server_mac) gives some more detailed information. It requires Android Studio which compiles the c program into an executable. Inside the APP you need to select the IP of the server. 
+
+Many thanks to [@Killerink](https://github.com/KillerInk/) to make this work! 
 
 
 ## Learn2Fluct
@@ -86,18 +117,20 @@ into high resolution images:
 </p>
 
 
-
-
 ## Electronics and Code
 
 To move the lenses or control the Laser intensity, we relied on Espressife EPS32s. The code to control them wirelessly using MQTT can be found here:
 
-[cellSTORM Electronics](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ESP32)
+[cellSTORM Electronics](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ELECTRONICS)
 
-## Contribute
+# Contribute
 
 If you have a question or found an error, please file an issue! We are happy to improve the device!  
 
+# License
+
+Please have a look into the dedicated [License file](LICENSE.MD).
+
 # Disclaimer
 
-We do not give any warranty for the proposed setup. Please use at your own risk. Keep in mind that Laser source can be very harmful to your eye and your environemnt! 
+We do not give any guarantee for the proposed setup. Please use it at your own risk. Keep in mind that Laser source can be very harmful to your eye and your environemnt! 
