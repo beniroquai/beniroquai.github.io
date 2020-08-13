@@ -86,9 +86,15 @@ async function computeFrames() {
       console.log("Predicting result...");
 
       // reshape and predict (from Android convention..)
-      const img_stack_1d = img_stack.reshape([1,N_x/2*N_y/2*N_time]);
+      const img_stack_min = tf.min(img_stack);
+      var img_stack_norm = tf.clone(img_stack);
+      img_stack_norm = tf.sub(img_stack_norm, img_stack_min);
+      const img_stack_max = tf.max(img_stack_norm);
+      img_stack_norm = tf.div(img_stack_norm, img_stack_max);
+      const img_stack_1d = tf.reshape(img_stack_norm,[1,N_x/2*N_y/2*N_time]);
       const myresult = model.predict(img_stack_1d);
-      const myresult_2d = myresult.reshape([N_x,N_y]);
+      var myresult_2d = myresult.reshape([N_x,N_y]);
+      myresult_2d = tf.mul(myresult_2d, 255);
       
       // Display result
       const canvas = document.getElementById(`output`);
