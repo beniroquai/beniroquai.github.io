@@ -98,6 +98,29 @@ To stream the data to a server [this manual](https://github.com/beniroquai/FreeD
 
 Many thanks to [@Killerink](https://github.com/KillerInk/) to make this work!
 
+### Settings for FreeDCam (Huawei P20 Pro) 
+
+We used the following settings:
+
+***Video Settings:***
+<p align="center">
+<img src="./images/ScreenshotFreedcamSettings (2).jpg" width="200">
+</p>
+
+***General Settings:***
+<p align="center">
+<img src="./images/ScreenshotFreedcamSettings (3).jpg" width="300">
+</p>
+
+<p align="center">
+<img src="./images/ScreenshotFreedcamSettings (4).jpg" width="300">
+</p>
+
+***Acquisition Settings:***
+<p align="center">
+<img src="./images/ScreenshotFreedcamSettings (1).jpg" width="300">
+</p>
+
 
 ## Learn2Fluct
 
@@ -120,6 +143,10 @@ into high resolution images:
 ### Live-Demo
 
 Please test this [link](./tfjs/index.html).
+
+### Google Colab
+
+Please have a look [here](https://colab.research.google.com/drive/1AkMT-O8qXnH9ikavBGUPaXuKVTPuJ_34?usp=sharing)
 
 ## Electronics and Code
 
