@@ -28,6 +28,14 @@ function createCanvases() {
 );
 }
 
+// Normalize Data
+function normalize(inputmat) {
+  const min = inputmat.min();
+  const max = inputmat.max();
+  inputmat = inputmat.sub(min).div(max.sub(min));
+  return inputmat;
+}
+
 
 // Loaded the TensorFlow.js model
 // (which was converted from a Keras model.h5)
@@ -85,32 +93,61 @@ async function computeFrames() {
     if(img_stack.size==(N_x/N_mag*N_y/N_mag*N_time)){
       console.log("Predicting result...");
 
+      img_stack = img_stack.cast('float32');
+
+
       // reshape and predict (from Android convention..)
+      const img_stack_norm = tf.tidy(() => {
+        const max = tf.max(img_stack);
+        const min = tf.min(img_stack);
+  
+        return tf.div(tf.sub(img_stack, min), tf.sub(max, min))
+      });
+
+
+      //img_stack = normalize(img_stack);
+      //console.log("stack mean: ");
+      //console.log(img_stack.mean())
+      /*
       const img_stack_min = tf.min(img_stack);
+      img_stack_min.print();
       var img_stack_norm = tf.clone(img_stack);
       img_stack_norm = tf.sub(img_stack_norm, img_stack_min);
       const img_stack_max = tf.max(img_stack_norm);
+      img_stack_max.print();
       img_stack_norm = tf.div(img_stack_norm, img_stack_max);
+  
       const img_stack_1d = tf.reshape(img_stack_norm,[1,N_x/2*N_y/2*N_time]);
-      const myresult = model.predict(img_stack_1d);
-      var myresult_2d = myresult.reshape([N_x,N_y]);
-      myresult_2d = tf.mul(myresult_2d, 255);
+          */
+      const myresult = model.predict(img_stack_norm.transpose([2,0,1]).expandDims(0));
+      
+      const myresult_2d = myresult.reshape([N_x,N_y]);
+      //myresult_2d = tf.mul(myresult_2d, 255);
+
+      //img_stack_norm.max().dataSync()
+      
+      // reshape and predict (from Android convention..)
+      const myresult_2d_norm = tf.tidy(() => {
+        const max = tf.max(myresult_2d);
+        const min = tf.min(myresult_2d);
+  
+        return tf.div(tf.sub(myresult_2d, min), tf.sub(max, min))
+      });
+
       
       // Display result
       const canvas = document.getElementById(`output`);
-      await tf.browser.toPixels(myresult_2d.clipByValue(0, 1).mul(tf.scalar(255)).cast('int32'), canvas);
+      await tf.browser.toPixels(tf.mul(myresult_2d_norm, 1), canvas);
       
       // Free Memory
       myresult.dispose();
       myresult_2d.dispose();
+      myresult_2d_norm.dispose();
   
       // append images
       img_stack = img_gray;
     }
-    //if(iframe==0){
-      // save the initial frame as
-    //  const img_stack = img_gray
-    //}
+
 
 
 
