@@ -210,12 +210,23 @@ We implemented a live-demo of the pre-trained SOFI-network which is available [h
 <img src="./images/cellstorm_tensoflowjs_screenshot.png" width="500">
 </p>
 
+The model was tested on a Macbook Pro using a Chrome browser which runs at *~1fps*. 
 
 
 
 ### Google Colab
 
-Please have a look [here](https://colab.research.google.com/drive/1AkMT-O8qXnH9ikavBGUPaXuKVTPuJ_34?usp=sharing)
+[(1) Export Keras model (Tensorflow v2.2!) to Tensorflow Lite (Android)](https://colab.research.google.com/drive/1AkMT-O8qXnH9ikavBGUPaXuKVTPuJ_34?usp=sharing)
+
+[(2) Standalone Keras training and exporting notebook to TFJs and TFLite; (only small dataset, no GPU for training)](https://colab.research.google.com/drive/1_GJKcha7S_J_s0JitunMWd4I2dMx4KC4?usp=sharing)
+
+
+
+# Datasets 
+
+We provide many datasets in a publicly accessible repository. Please have a look at [ZENODO]() [***Comming Soon - need to wait for all data first***]
+
+***Note:*** Not all the experiments are fully documented. If you need additional experimental parameters, please don't hesitate to get back to us so that we can add this! 
 
 # Tutorials 
 
