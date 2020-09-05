@@ -1,17 +1,14 @@
 # cellSTORM 2
 
-A low-cost superresolution imaging device based on a cellphone camera and photonic waveguide chips
+A low-cost super-resolution imaging device based on a cellphone camera and photonic waveguide chips
 
 ---
 
-## Abstract
+## Preprint 
 
-In microscopic imaging, where an optimum between high throughput, high resolution, small time-scales and low light exposure is of high interest, a high price tag and complex optical systems is usually inevitable. This is especially true for super-resolution (SR) methods like single molecule imaging techniques (e.g. dSTORM, PALM, DNA-Paint). Recent advances in waveguide-based imaging have opened new opportunities by separating the illumination- and detection-path by taking advantage of the evanescent field inside a high refractive index photonic waveguide which excites fluorescently labeled cells growing on its surface (i.e. TIRF).
-Combining this with recent advances of low cost and off-the-shelf components like cellphone cameras, entertainment lasers and optical-pickups (OPU), we built the first 3D printed microscope which can perform dSTORM measurements for an overall price of <1000€ fitting on the palm of hand. Using fluctuation-based SR methods like ESI or MUSCAL, this device can also perform inexpensive TIRF experiments in living environments (i.e. incubator). We show dSTORM results of fixed HeLa and HUVEC cells labeled with Alexa Fluo 647® to give a proof-of-principle for a change in paradigm – science for a dime.
-With a lateral resolution of about 100nm, an axial sectioning of 150nm and a FOV of 400x400µm2 this device gives a new tool to biologists to study cell dynamics on the cheap. All sources and design files are shared in an online repository to attempt democratization in scientific research and make cutting-edge research not only available but also affordable.
-Additionally we show the recent advances in the open-source toolbox UC2 which not only is good for out-reach activities in STEM-research but paving the way to democratize super-resolution microscopy.
+The preprint for the *cell*STORM II device accompanied with a series of applications ca be found on [**BIORXIV**](https://www.biorxiv.org/content/10.1101/2020.09.04.283085v1) 😊 
 
-## cellSTORM II
+## *cell*STORM II
 
 The compact device features:
 
@@ -62,6 +59,8 @@ cellstorm_dstorm_hela_60x.png
 If you want to replicate the device, you can find a detailed description with all necessary parts to order in this repsitory:
 
 [CAD-Repository](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD)
+
+## Assembly Tutorials
 
 We now also have a pictures tutorial with a step-by-step guide on how to build the cellSTORM microscope [here](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/CAD#assembly)
 
@@ -236,19 +235,19 @@ We provide many datasets in a publicly accessible repository. Please have a look
 https://www.youtube.com/watch?v=gefJPZ8_ua8&feature=youtu.be
 
 ### cellSTORM - Part 2: Align the lens (OPU) and the laser
-https://www.youtube.com/watch?v=GFoVPgfUFtI&feature=youtu.be
+[https://www.youtube.com/watch?v=GFoVPgfUFtI&feature=youtu.be](https://www.youtube.com/watch?v=GFoVPgfUFtI&feature=youtu.be)
 
 ### cellSTORM - Part 3: Adding the waveguide chip and start coupling
-https://www.youtube.com/watch?v=-dWIeXHAiBc&feature=youtu.be
+[https://www.youtube.com/watch?v=-dWIeXHAiBc&feature=youtu.be](https://www.youtube.com/watch?v=-dWIeXHAiBc&feature=youtu.be)
 
 ### cellSTORM - Part 4: Setup the optical part
-https://www.youtube.com/watch?v=qdbaAQTLw-c&feature=youtu.be
+[https://www.youtube.com/watch?v=qdbaAQTLw-c&feature=youtu.be](https://www.youtube.com/watch?v=qdbaAQTLw-c&feature=youtu.be)
 
 ### cellSTORM - Part 5: Setup the imaging using the cellphone
-https://www.youtube.com/watch?v=fhmkS0Ywucg&feature=youtu.be
+[https://www.youtube.com/watch?v=fhmkS0Ywucg&feature=youtu.be](https://www.youtube.com/watch?v=fhmkS0Ywucg&feature=youtu.be)
 
 ### cellSTORM - Part 6: Setup the FreeDCam for best SNR performance
-https://www.youtube.com/watch?v=Evdc-384KZk&feature=youtu.be
+[https://www.youtube.com/watch?v=Evdc-384KZk&feature=youtu.be](https://www.youtube.com/watch?v=Evdc-384KZk&feature=youtu.be)
 
 # Contribute
 
