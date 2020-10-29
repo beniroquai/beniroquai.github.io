@@ -111,7 +111,7 @@ Briefly summarized and in-detail described below:
 |  STORM-Controler | Remote control (MQTT) to control things like laser intensity, coupling lens, focus  |  [APP: STORM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)  | 
 |  STORM-Imager | Control long-term image acquisition by enabling auto-focus and auto-coupling, schedule fluctuating intensity measurements inside incubators   |   [APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)  | 
 |  FreeDCam | Full control over the cellphones camera: RAW and video image acquisition |   [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) | 
-
+|  ImJoy Fiji.JS Learn2Sofi | Fiji.JS Plugin to process temporal stacks made by Wei @ ImJoy | [![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#) |
 
 ## Android APP: STORM-Controler
 
@@ -216,6 +216,31 @@ We implemented a live-demo of the pre-trained SOFI-network which is available [h
 
 The model was tested on a Macbook Pro using a Chrome browser which runs at *~1fps*. 
 
+
+### ImJoy Plugin 
+[![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#)
+
+Wei made an awesome plugin for the browser-based FiJi which encapsulates the Javascript LiveDemo into a Fiji.JS applet. Very easy to use and beware: No installation necessary!! 
+
+Go to the [ImJoy-Plugin Webpage](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#)
+
+It will automatically load a sample TIF-Stack which you can find [here](https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif)
+
+***Starting the Plugin:***
+Opening the plugin is as easy as selecting it from the ImJoy Icon on the left hand side:
+<p align="center">
+<img src="./images/ImJoy_screenshotCapture.PNG" width="300">
+</p>
+
+***Executing the Plugin:***
+Once you hit the Learn2SOFI button it will propagate the image stack through the network which looks like this after processing:
+<p align="center">
+<img src="./images/ImJoy_screenshotCapture_2.PNG" width="300">
+</p>
+
+You can start playing with your own data by uploading you own time stack. It has to have the following dimensions: ```Nx=128, Ny=128, t=30```
+
+EnJoy! :-)
 
 
 ### Google Colab
