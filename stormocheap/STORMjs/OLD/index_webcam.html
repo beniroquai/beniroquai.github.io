@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <!-- Load the latest version of TensorFlow.js 
+    https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js-->
+    <!--<script src="https://firebasestorage.googleapis.com/v0/b/tfjs-d4820.appspot.com/o/tf.min.js?alt=media&token=a81d60a5-1246-40ef-a696-7b24db5352b9"></script> -->
+    <script src="tf.min.js"></script> 
+    <!--</script><script src="./bundle/tf.min.js"> </script> -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/tf.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+  </head>
+  <body>
+    <div id="console"></div>
+    <!-- Add an image that we will use to test -->
+    <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+    <!-- Load index.js after the content of the page -->
+    <script src="index_webcam.js"></script>
+  </body>
+</html>
