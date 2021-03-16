@@ -21,6 +21,38 @@ Open-source optical toolbox for low-end to high-end microscopy. Have an idea? We
 🎬[Youtube:openUC2](https://www.youtube.com/watch?v=M_oqieogAOo&t=5s&ab_channel=openUC2)
 
 
+## UC2 - Super-resolution imaging using SIM and ISM
+
+You can perform high-resolution imaging using UC2 using structured illumination microscopy (SIM) and image scanning microscopy (ISM).
+
+<p align="center">
+<img src="./images/UC2_SIM.png" width="600">
+</p>
+
+
+
+📃[DOI: 10.1101/2021.01.08.425840v1](https://www.biorxiv.org/content/10.1101/2021.01.08.425840v1)
+
+🔬[Github:bionanoimaging/UC2-GIT/APPLICATIONS/APP_openSIM](https://github.com/bionanoimaging/UC2-GIT/tree/v3/APPLICATIONS/APP_openSIM)
+
+## UC2 - educationa minBOX
+
+Use UC2 in education? Of course. Made for it using the new injection moulded cubes! All in a curated box with a growing list of optical experiments to challenge peoples creativity.
+
+<p align="center">
+<img src="./images/UC2_Edu.png" width="500">
+</p>
+
+
+
+📃[DOI: 10.1038/s41467-020-19447-9](https://doi.org/10.1038/s41467-020-19447-9)
+
+🔬[Github:bionanoimaging/UC2-GIT/TheBOX](https://github.com/bionanoimaging/UC2-GIT/tree/master/TheBOX)
+
+🎬[Youtube:openUC2](https://www.youtube.com/watch?v=M_oqieogAOo&t=5s&ab_channel=openUC2)
+
+
+
 ## CellSTORM II
 
 Cellphone-based super-resolution imaging device that realizes **STORM**, **SOFI/SRRF** and live-cell widefield imaging.
