@@ -7,7 +7,7 @@ Here you can find a list of our open-source tools to realize all kinds of micros
 Open-source optical toolbox for low-end to high-end microscopy. Have an idea? We would be keen to realize it! 
 
 <p align="center">
-<img src="./IMAGES/you-see-too-baukasten.png" width="400">
+<img src="./images/you-see-too-baukasten.png" width="400">
 </p>
 
 
@@ -26,7 +26,7 @@ Open-source optical toolbox for low-end to high-end microscopy. Have an idea? We
 Cellphone-based super-resolution imaging device that realizes **STORM**, **SOFI/SRRF** and live-cell widefield imaging.
 
 <p align="center">
-<img src="./IMAGES/cellstorm2.png" width="800">
+<img src="./images/cellstorm2.png" width="800">
 </p>
 
 
@@ -36,12 +36,12 @@ Cellphone-based super-resolution imaging device that realizes **STORM**, **SOFI/
 🔬[Github:stormocheap](https://beniroquai.github.io/stormocheap/)
 
 
-## OpenTRONS XY STage
+## OpenTRONS XY Stage
 
 Multi-well plate reader for the use in pipetting robots to automate large scale micrsocopic imaging experiments.
 
 <p align="center">
-<img src="./IMAGES/Opentronsscope.png" width="800">
+<img src="./images/Opentronsscope.png" width="800">
 </p>
 
 
