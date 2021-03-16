@@ -1,9 +1,9 @@
-title: cellSTORM II
-logo: "/images/logo.png?raw=true" # your photo (or logo) here 
+title: Open-Source Microscopy
+#logo: "/images/logo.png?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  This is the project page for the preprint "cellSTORM 2 - Nanoscopy on the chea(i)p"
+  This is a summary of some of the open-source hardware pojects we would like share. We aim to break the inverse relationship between price and resolution. Feel free to contact us if you have cool ideas!
   <br><br>
-  The listed repository links will guide you through the different steps to replicate the result.
+  The list will be updated regularily.
   <br><br>
   <a href="https://www.nanoimaging.de/">Find more in our Nanoimaging Webpage</a>
 
