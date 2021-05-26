@@ -13,21 +13,20 @@ The preprint for the *Hi2*  accompanied with a series of applications ca be foun
 This project features:
 
 ```
-- autofocus
-- automatic coupling mechanism
-- on-device superresolution imaging
-- survives cell incubators for several days
-- performs autonomous imaging over several days
-- dSTORM with <100 nm optical resolution
+- Large-scale well plate scanning microscope (standalone, UC2-based) 
+- Open imaging platform for high-throughput experiments
+- GRBL-based motor and Laser controler
+- OpenFlexure Server-based GUI and control software
+- ImJoy-based image processing system (with ImageJ.js)
+- Sample protocols to control the OFM microscope with ImJoy and Opentrons
+- Long-term experiments with small deviations of the FOV
+- Autofocus, scanning, fluorescence microscopy
 - costs <1000€ (for single-wavelength imaging)
-- optical resolution down to 100nm
-- multiple wavelength can be used (sequentially)
-- using photonic waveguide chips TIRF is possible
 ```
 
 
 <p align="center">
-<img src="./images/cellSTORM_v5.png" width="500">
+<img src="./images/main.png" width="600">
 </p>
 
 
@@ -114,22 +113,6 @@ Briefly summarized and in-detail described below:
 |  FreeDCam | Full control over the cellphones camera: RAW and video image acquisition |   [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) | 
 |  ImJoy Fiji.JS Learn2Sofi | Fiji.JS Plugin to process temporal stacks made by Wei @ ImJoy | [![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#) |
 
-## Android APP: STORM-Controler
-
-To control the Lens or Laser using a customized MQTT controler APP, you can visit this repository:
-
-[APP: STORM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)
-
-This app allows basic hardware controls:
-<p align="center">
-<img src="./images/cellSTORM_app.png" width="200">
-</p>
-
-## Android APP: STORM-Imager
-
-This is the APP which can record images, control the device and predict a super-resolved result form the camera live stream. The APP can be found here:
-
-[APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)
 
 
 ### Autofocus inside the APP:
