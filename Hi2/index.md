@@ -29,27 +29,39 @@ This project features:
 <img src="./images/main.png" width="600">
 </p>
 
-
-
-## Super-Resolution using Fluctuating Intensity (SRRF, ESI, SOFI, etc..) 
-
-Using SRRF from the Henrique lab it's possible to quickly increase the resolution even without complicated STORM protocols:
+# Systemdiagram
 
 <p align="center">
-<img src="./images/image_1.png" width="500">
+<img src="./images/SYSTEM.png" width="500">
 </p>
 
-The image of actin labelled HUVEC cells is acquired using a 60x, 0.85NA objective lens. While moving the coupling lens, the varying intensity pattern caused by a changing mode field pattern can be used to increase the lateral resolution of fluorescently labeled samples at low excitation power. This is suitable for live-cell imaging. 
-
-## Super-Resolution using SMLM (*d*STORM)
-
-With high enough coupling efficiency and laser intensity, the setup enables super-resolution with a final resolution <100nm on a large field of view (FOV). This is well suited not only for educational purposes, but also for research outside the ordinary research and optics labs. 
+## Subsystem: Hi2 - UC2 High-Throughput Microscope
 
 <p align="center">
-<img src="./images/cellstorm_dstorm_hela_60x.png" width="500">
+<img src="./images/Sub_Hi2.png" width="500">
 </p>
 
-cellstorm_dstorm_hela_60x.png
+## Subsystem: ImJoy - 
+
+<p align="center">
+<img src="https://github.com/imjoy-team/ImJoy/raw/master/docs/assets/imjoy-overview.jpg" width="500">
+</p>
+
+## Subsystem: Opentrons OT2
+
+<p align="center">
+<img src="https://opentrons.com/static/NGS-Library-Prep@2x-d0ab4c4b02a5a86d5d2048a41e2641e1.png" width="300">
+</p>
+
+## Subsystem: OpenFlexure Server 
+
+[SRC](https://openflexure.org/projects/microscope/develop)
+<p align="center">
+<img src="https://openflexure.org/assets/plugins.png" width="500">
+</p>
+
+
+
 
 # Hardware
 
@@ -103,6 +115,27 @@ Amazon is more reliable, but personally we try to avoid ordering there (Sorry..)
 
 # Software 
 
+GOAL: 
+
+## Nvidia Jetson Nano 
+
+### Prerequirements 
+
+### Installation 
+
+### Testing
+
+
+## Opentrons OT2
+ 
+GOAL: 
+
+### Prerequirements 
+
+### Installation 
+
+### Testing 
+ 
 As the software we relied on three different APPs for recent Android phones (in our case Huawei P20 Pro).
 
 Briefly summarized and in-detail described below:
@@ -114,8 +147,12 @@ Briefly summarized and in-detail described below:
 |  ImJoy Fiji.JS Learn2Sofi | Fiji.JS Plugin to process temporal stacks made by Wei @ ImJoy | [![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#) |
 
 
+## OpenFlexure Microscope (Server/GUI)
 
-### Autofocus inside the APP:
+### Step-by-step: GUI
+
+
+#### Autofocus inside the APP:
 
 It's just an example how the cellphone maintains the focus. This is done by maximizing the focus metric (i.e. standard deviation over z) as a function of the focus motor position.
 
@@ -123,82 +160,11 @@ It's just an example how the cellphone maintains the focus. This is done by maxi
 <img src="./images/autofocus.gif" width="300">
 </p>
 
+#### Move XYZ
 
-### SOFI-based superresolution imaging inside the APP:
+#### Timelapse 
 
-This is an example of the SOFI-based superresolution imaging using the neural network mentioned below. We used fixed *e.coli* labelled with ATTO 647.
-The fluctuation of the illumination is the result of the discrete mode pattern in the singlemode waveguide chip. The input field changes the intensity pattern.   
-
-<p align="center">
-<img src="./images/ondevicesr.gif" width="300">
-</p>
-
-## Android APP: FreeDCam (cellSTORM module)
-
-For the *d*STORM experiments we used the open source APP [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) originally developed and mainted by [killerink](https://github.com/KillerInk/FreeDcam). We provide a modified version for the Huawei P9 and P20 which is used in this work. It enables
-
-1. fast read-out and saving of cropped RAW frames to the SD-cad
-2. stream the RAW buffer to a c-server
-
-To stream the data to a server [this manual](https://github.com/beniroquai/FreeDcam/tree/cellstorm/server_mac) gives some more detailed information. It requires Android Studio which compiles the c program into an executable. Inside the APP you need to select the IP of the server.
-
-Many thanks to [@Killerink](https://github.com/KillerInk/) to make this work!
-
-### Settings for FreeDCam (Huawei P20 Pro) 
-
-We used the following settings:
-
-***Video Settings:***
-<p align="center">
-<img src="./images/ScreenshotFreedcamSettings (2).jpg" width="200">
-</p>
-
-***General Settings:***
-<p align="center">
-<img src="./images/ScreenshotFreedcamSettings (3).jpg" width="300">
-</p>
-
-<p align="center">
-<img src="./images/ScreenshotFreedcamSettings (4).jpg" width="300">
-</p>
-
-***Acquisition Settings:***
-<p align="center">
-<img src="./images/ScreenshotFreedcamSettings (1).jpg" width="300">
-</p>
-
-
-## NN-based Super-Resolution Imaging: "Learn2Fluct"
-
-The python and tensorflow-based neural network to use "SOFI"-like image reconstruction based on ```convLSTM2D``` layers on a cellphone can be found here:
-
-[Neural Network](https://github.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct)
-
-It aims to transfer a stack of noisy low resolution images with varying illumination pattern:
-
-<p align="center">
-<img src="./images/mytest_obj-2.gif" width="300">
-</p>
-
-into high resolution images:
-
-<p align="center">
-<img src="./images/mytest_gt-1.png" width="300">
-</p>
-
-It is part of the APP "STORM-Imager" and can be used as an interactive website (Live-Demo). To train the model have a look in the recent ```Tensorflow==2.3.0``` implementation using ```Keras```  and ```TFLite``` which can be found in the Github-Reopository [here](https://github.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/tree/master/TF2_KERAS).
-
-### Live-Demo using Webcam
-
-We implemented a live-demo of the pre-trained SOFI-network which is available [here](./STORMjs/index.html). It runs in Javascript and does not transfer any (!) data to the internet. It runs locally once the model of the neural network is downloaded. 
-
-***Note:*** It's in an experimental stage. It's not optimized for performance. We do not guarantee for proper functionality. Use it on your own risk!
-
-<p align="center">
-<img src="./images/cellstorm_tensoflowjs_screenshot.png" width="500">
-</p>
-
-The model was tested on a Macbook Pro using a Chrome browser which runs at *~1fps*. 
+## ImJoy in Opentrons 
 
 
 ### ImJoy Plugin 
@@ -226,12 +192,36 @@ You can start playing with your own data by uploading you own time stack. It has
 
 EnJoy! :-)
 
+# Opentrons as the master 
 
-### Google Colab
+./generate.sh  -i http://localhost:5000/openapi.json   -p client   -o generated 
+    
+  ./scripts/generate.sh  \
+  -i http://localhost/openapi.json  \
+  -p my_client  \
+  -o generated
+  
+  ./scripts/generate.sh -i <openapi_json> -p <package_name> -o <output_path>
+  [-n <import_name>] [--include-auth]
+  [--] [*openapi-generator-args]
+  
+Purpose 
 
-[(1) Export Keras model (Tensorflow v2.2!) to Tensorflow Lite (Android)](https://colab.research.google.com/drive/1AkMT-O8qXnH9ikavBGUPaXuKVTPuJ_34?usp=sharing)
+## Setting up 
 
-[(2) Standalone Keras training and exporting notebook to TFJs and TFLite; (only small dataset, no GPU for training)](https://colab.research.google.com/drive/1_GJKcha7S_J_s0JitunMWd4I2dMx4KC4?usp=sharing)
+## Jupyter Notebook 
+
+## REsults 
+
+# OFM as the master 
+
+Purpose 
+
+## Setting up 
+
+## Jupyter Notebook 
+
+## REsults 
 
 
 
@@ -241,27 +231,10 @@ We provide many datasets in a publicly accessible repository. Please have a look
 
 ***Note:*** Not all the experiments are fully documented. If you need additional experimental parameters, please don't hesitate to get back to us so that we can add this! 
 
-# Tutorials 
+# Tutorials
+# Related projects 
 
-## Video Tutorials to setup the cellSTORM device
-
-### cellSTORM - Part 1: Setup the MQTT server and connect the cellphone
-https://www.youtube.com/watch?v=gefJPZ8_ua8&feature=youtu.be
-
-### cellSTORM - Part 2: Align the lens (OPU) and the laser
-[https://www.youtube.com/watch?v=GFoVPgfUFtI&feature=youtu.be](https://www.youtube.com/watch?v=GFoVPgfUFtI&feature=youtu.be)
-
-### cellSTORM - Part 3: Adding the waveguide chip and start coupling
-[https://www.youtube.com/watch?v=-dWIeXHAiBc&feature=youtu.be](https://www.youtube.com/watch?v=-dWIeXHAiBc&feature=youtu.be)
-
-### cellSTORM - Part 4: Setup the optical part
-[https://www.youtube.com/watch?v=qdbaAQTLw-c&feature=youtu.be](https://www.youtube.com/watch?v=qdbaAQTLw-c&feature=youtu.be)
-
-### cellSTORM - Part 5: Setup the imaging using the cellphone
-[https://www.youtube.com/watch?v=fhmkS0Ywucg&feature=youtu.be](https://www.youtube.com/watch?v=fhmkS0Ywucg&feature=youtu.be)
-
-### cellSTORM - Part 6: Setup the FreeDCam for best SNR performance
-[https://www.youtube.com/watch?v=Evdc-384KZk&feature=youtu.be](https://www.youtube.com/watch?v=Evdc-384KZk&feature=youtu.be)
+[iGEM Marburg 2019](https://github.com/igemsoftware2019/iGemMarburg2019/blob/fe84cfb141d7be023d2438a85184a40772899c5b/GUI/ColonyPickingGUI/ColonyPickerGUI.py)
 
 # Contribute
 
