@@ -136,63 +136,133 @@ GOAL:
 
 ### Testing 
  
-As the software we relied on three different APPs for recent Android phones (in our case Huawei P20 Pro).
-
-Briefly summarized and in-detail described below:
-
-|  Name | Purpose  |  Source  | 
-|  STORM-Controler | Remote control (MQTT) to control things like laser intensity, coupling lens, focus  |  [APP: STORM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)  | 
-|  STORM-Imager | Control long-term image acquisition by enabling auto-focus and auto-coupling, schedule fluctuating intensity measurements inside incubators   |   [APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)  | 
-|  FreeDCam | Full control over the cellphones camera: RAW and video image acquisition |   [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) | 
-|  ImJoy Fiji.JS Learn2Sofi | Fiji.JS Plugin to process temporal stacks made by Wei @ ImJoy | [![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#) |
-
-
 ## OpenFlexure Microscope (Server/GUI)
 
 ### Step-by-step: GUI
 
 
-#### Autofocus inside the APP:
-
-It's just an example how the cellphone maintains the focus. This is done by maximizing the focus metric (i.e. standard deviation over z) as a function of the focus motor position.
-
-<p align="center">
-<img src="./images/autofocus.gif" width="300">
-</p>
-
-#### Move XYZ
-
-#### Timelapse 
-
-## ImJoy in Opentrons 
 
 
-### ImJoy Plugin 
-[![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#)
+## ImJoy inside Opentrons' Jupyter Notebook
 
-Wei made an awesome plugin for the browser-based FiJi which encapsulates the Javascript LiveDemo into a Fiji.JS applet. Very easy to use and beware: No installation necessary!! 
+For this we will use a server with more computational power (e.g. Laptop)
 
-Go to the [ImJoy-Plugin Webpage](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#)
+### Setting up ImJoy Server
 
-It will automatically load a sample TIF-Stack which you can find [here](https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif)
+Install imjoy server:
 
-***Starting the Plugin:***
-Opening the plugin is as easy as selecting it from the ImJoy Icon on the left hand side:
-<p align="center">
-<img src="./images/ImJoy_screenshotCapture.PNG" width="300">
-</p>
+`
+pip install imjoy
+imjoy --serve --host=21.3.2.4
+`
 
-***Executing the Plugin:***
-Once you hit the Learn2SOFI button it will propagate the image stack through the network which looks like this after processing:
-<p align="center">
-<img src="./images/ImJoy_screenshotCapture_2.PNG" width="300">
-</p>
+where the host is the local IP address from the server (0.0.0.0 or 127.0.0.1 do not work?)
 
-You can start playing with your own data by uploading you own time stack. It has to have the following dimensions: ```Nx=128, Ny=128, t=30```
+### ImJoy client 
 
-EnJoy! :-)
+Run this python file on the server (e.g. Laptop) to generate a ImJoy plugin which will be called from Jupyter Notebook (e.g. Opentrons)
 
-# Opentrons as the master 
+```py
+from imjoy import connect_to_server
+
+def localize(image):
+    return image*2
+
+async def main():
+    ws = await connect_to_server(name="localization", server_url="http://21.3.2.4:9527")
+    ret = await ws.generate_token()
+    print('workspace = "'+ws.config["workspace"]+'"')
+    print('token = "'+ret["token"]+'"')
+    await ws.export({"localize": localize})
+    
+if __name__ == '__main__':
+    import asyncio
+    loop = asyncio.get_event_loop()
+    loop.create_task(main())
+    #loop.run_forever() # oncumment it if you have it outside a jupyter notebook environment
+```
+    
+This will give you the `workspace` and `token` in a very cryptic way. Note it for later:
+
+```py
+=====workspace=======
+ ad34b65f-748a-4ece-9136-a13610b3149e localization
+=============token===============
+imjoy@eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsiYWQzNGI2NWYtNzQ4YS00ZWNlLTkxMzYtYTEzNjEwYjMxNDllIl0sImV4cGlyZXNfYXQiOm51bGwsInVzZXJfaWQiOiIxODRhNDU3ZC0zNDU0LTRiYmMtYWZkOC1mOWIzNWM1ODk3YjgiLCJwYXJlbnQiOiJhZDM0YjY1Zi03NDhhLTRlY2UtOTEzNi1hMTM2MTBiMzE0OWUiLCJlbWFpbCI6bnVsbCwicm9sZXMiOltdfQ.vy2V9eLQav8gKqTlm79uPdVZdeyVpVymJSzPDrPexiE
+```
+
+
+### ImJoy Jupyer Notebook
+
+This is mainly for debugging the server for example on the Laptop
+
+```py
+import numpy as np
+from imjoy_rpc import connect_to_server
+
+token = "imjoy@eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsiYWQzNGI2NWYtNzQ4YS00ZWNlLTkxMzYtYTEzNjEwYjMxNDllIl0sImV4cGlyZXNfYXQiOm51bGwsInVzZXJfaWQiOiIxODRhNDU3ZC0zNDU0LTRiYmMtYWZkOC1mOWIzNWM1ODk3YjgiLCJwYXJlbnQiOiJhZDM0YjY1Zi03NDhhLTRlY2UtOTEzNi1hMTM2MTBiMzE0OWUiLCJlbWFpbCI6bnVsbCwicm9sZXMiOltdfQ.vy2V9eLQav8gKqTlm79uPdVZdeyVpVymJSzPDrPexiE"
+workspace = "ad34b65f-748a-4ece-9136-a13610b3149e"
+serverip = "http://21.3.2.4"
+
+ws = await connect_to_server(server_url=serverip+":9527", 
+                       workspace=workspace, 
+                       token=token)
+localize_plugin = await ws.getPlugin("localization")
+```
+
+The return of the `localize_plugin` should give you something like:
+
+```
+{'localize': <function imjoy_rpc.rpc.RPC._gen_remote_method.<locals>.remote_method(*arguments, **kwargs)>,
+ '_rintf': '400cdfe6-57db-4977-9187-8da5362966d5'}
+```
+
+Now we actually test the plugin:
+
+```py
+locations = await localize_plugin.localize(np.ones([100,100]))
+print(locations)
+```
+
+which gives us:
+
+```py
+[[2. 2. 2. ... 2. 2. 2.]
+ [2. 2. 2. ... 2. 2. 2.]
+ [2. 2. 2. ... 2. 2. 2.]
+ ...
+ [2. 2. 2. ... 2. 2. 2.]
+ [2. 2. 2. ... 2. 2. 2.]
+ [2. 2. 2. ... 2. 2. 2.]]
+```
+
+### On the Opentrons
+
+Due to the old version of the Jupyter Notebook, the Opentrons has to be used with a different code version:
+
+```py
+from imjoy_rpc import connect_to_server
+token = "imjoy@eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsiYTQ1NWRlYjktMzc5YS00Y2Q5LTg2MmQtZWMxMmE0NjBkMmQ2Il0sImV4cGlyZXNfYXQiOm51bGwsInVzZXJfaWQiOiIyOGZlYzNhMi03OWFjLTQyYWQtYjRmZi1iNTgxMWIxMjUyYTciLCJwYXJlbnQiOiJhNDU1ZGViOS0zNzlhLTRjZDktODYyZC1lYzEyYTQ2MGQyZDYiLCJlbWFpbCI6bnVsbCwicm9sZXMiOltdfQ.d2FfZMEB-5OyO0rkx7-FLfXFehq6n3A0lrCmrrNU-wM"
+workspace = "a455deb9-379a-4cd9-862d-ec12a460d2d6"
+serverip = "http://21.3.2.4"
+import asyncio
+loop = asyncio.get_event_loop()
+async def run_plugin():
+    ws = await connect_to_server(server_url=serverip+":9527", 
+                           workspace=workspace, 
+                           token=token)
+    localize_plugin = await ws.getPlugin("localization")
+    locations = await localize_plugin.localize(myimage)
+    print(locations)
+loop.create_task(run_plugin())
+```
+
+
+Not working yet...
+
+
+
+## Opentrons as the master 
 
 ./generate.sh  -i http://localhost:5000/openapi.json   -p client   -o generated 
     
