@@ -146,15 +146,17 @@ GOAL:
 ## ImJoy inside Opentrons' Jupyter Notebook
 
 For this we will use a server with more computational power (e.g. Laptop)
+Some information can be found [here](https://gist.github.com/oeway/fc4028c6f4db0b5a72e3372abf9bb437)
+
 
 ### Setting up ImJoy Server
 
 Install imjoy server:
 
-`
+```
 pip install imjoy
 imjoy --serve --host=21.3.2.4
-`
+``
 
 where the host is the local IP address from the server (0.0.0.0 or 127.0.0.1 do not work?)
 
@@ -242,23 +244,44 @@ Due to the old version of the Jupyter Notebook, the Opentrons has to be used wit
 
 ```py
 from imjoy_rpc import connect_to_server
-token = "imjoy@eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsiYTQ1NWRlYjktMzc5YS00Y2Q5LTg2MmQtZWMxMmE0NjBkMmQ2Il0sImV4cGlyZXNfYXQiOm51bGwsInVzZXJfaWQiOiIyOGZlYzNhMi03OWFjLTQyYWQtYjRmZi1iNTgxMWIxMjUyYTciLCJwYXJlbnQiOiJhNDU1ZGViOS0zNzlhLTRjZDktODYyZC1lYzEyYTQ2MGQyZDYiLCJlbWFpbCI6bnVsbCwicm9sZXMiOltdfQ.d2FfZMEB-5OyO0rkx7-FLfXFehq6n3A0lrCmrrNU-wM"
-workspace = "a455deb9-379a-4cd9-862d-ec12a460d2d6"
-serverip = "http://21.3.2.4"
+import numpy as np
 import asyncio
+
+serverip = "http://21.3.2.4"
+workspace = "406c3445-4c74-4a02-8df3-6fc0d01312bf"
+token = "imjoy@eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsiNDA2YzM0NDUtNGM3NC00YTAyLThkZjMtNmZjMGQwMTMxMmJmIl0sImV4cGlyZXNfYXQiOm51bGwsInVzZXJfaWQiOiJjMTZlZTk4OS0zNWVjLTQzOTMtODdhNS03MjIwMGNlNzgyMTkiLCJwYXJlbnQiOiI0MDZjMzQ0NS00Yzc0LTRhMDItOGRmMy02ZmMwZDAxMzEyYmYiLCJlbWFpbCI6bnVsbCwicm9sZXMiOltdfQ.ek6glURO6KuHtj6K-YdnLYYy0ggoQ3Q_GJGR80rIRzc"
+myimage = np.ones((100,100))
+
 loop = asyncio.get_event_loop()
 async def run_plugin():
+    global localize_plugin
+    global locations
     ws = await connect_to_server(server_url=serverip+":9527", 
                            workspace=workspace, 
                            token=token)
     localize_plugin = await ws.getPlugin("localization")
     locations = await localize_plugin.localize(myimage)
-    print(locations)
 loop.create_task(run_plugin())
 ```
 
+and in the next cell:
 
-Not working yet...
+```py
+localize_plugin
+locations
+```
+
+will give you:
+
+```py
+array([[2., 2., 2., ..., 2., 2., 2.],
+       [2., 2., 2., ..., 2., 2., 2.],
+       [2., 2., 2., ..., 2., 2., 2.],
+       ...,
+       [2., 2., 2., ..., 2., 2., 2.],
+       [2., 2., 2., ..., 2., 2., 2.],
+       [2., 2., 2., ..., 2., 2., 2.]])
+```
 
 
 
