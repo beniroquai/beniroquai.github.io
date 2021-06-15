@@ -1,12 +1,42 @@
+# High throughput for openUC2 - Hi2
+
+A low-cost high-throughput microscope for multi-well plate scanning inside the opentrons pipetting robot.
+
+---
+
+## Preprint
+
+The preprint for the *Hi2* system can be found on [**BIORXIV**]() 😊
+
+Main features:
+
+```
+- Large-scale well plate scanning microscope (standalone, UC2-based)
+- Open imaging platform for high-throughput experiments
+- GRBL-based motor and Laser controler
+- OpenFlexure Server-based GUI and control software
+- ImJoy-based image processing system (with ImageJ.js)
+- Sample protocols to control the OFM microscope with ImJoy and Opentrons
+- Long-term experiments with small deviations of the FOV
+- Autofocus, scanning, fluorescence microscopy
+- costs <1000€ (for single-wavelength imaging)
+```
+
+
+<p align="center">
+<img src="./Hi2/images/main.png" width="500">
+</p>
+
+
 # cellSTORM 2
 
 A low-cost super-resolution imaging device based on a cellphone camera and photonic waveguide chips
 
 ---
 
-## Preprint 
+## Preprint
 
-The preprint for the *cell*STORM II device accompanied with a series of applications ca be found on [**BIORXIV**](https://www.biorxiv.org/content/10.1101/2020.09.04.283085v1) 😊 
+The preprint for the *cell*STORM II device accompanied with a series of applications ca be found on [**BIORXIV**](https://www.biorxiv.org/content/10.1101/2020.09.04.283085v1) 😊
 
 ## *cell*STORM II
 
@@ -32,7 +62,7 @@ The compact device features:
 
 
 
-## Super-Resolution using Fluctuating Intensity (SRRF, ESI, SOFI, etc..) 
+## Super-Resolution using Fluctuating Intensity (SRRF, ESI, SOFI, etc..)
 
 Using SRRF from the Henrique lab it's possible to quickly increase the resolution even without complicated STORM protocols:
 
@@ -40,11 +70,11 @@ Using SRRF from the Henrique lab it's possible to quickly increase the resolutio
 <img src="./images/image_1.png" width="500">
 </p>
 
-The image of actin labelled HUVEC cells is acquired using a 60x, 0.85NA objective lens. While moving the coupling lens, the varying intensity pattern caused by a changing mode field pattern can be used to increase the lateral resolution of fluorescently labeled samples at low excitation power. This is suitable for live-cell imaging. 
+The image of actin labelled HUVEC cells is acquired using a 60x, 0.85NA objective lens. While moving the coupling lens, the varying intensity pattern caused by a changing mode field pattern can be used to increase the lateral resolution of fluorescently labeled samples at low excitation power. This is suitable for live-cell imaging.
 
 ## Super-Resolution using SMLM (*d*STORM)
 
-With high enough coupling efficiency and laser intensity, the setup enables super-resolution with a final resolution <100nm on a large field of view (FOV). This is well suited not only for educational purposes, but also for research outside the ordinary research and optics labs. 
+With high enough coupling efficiency and laser intensity, the setup enables super-resolution with a final resolution <100nm on a large field of view (FOV). This is well suited not only for educational purposes, but also for research outside the ordinary research and optics labs.
 
 <p align="center">
 <img src="./images/cellstorm_dstorm_hela_60x.png" width="500">
@@ -75,7 +105,7 @@ To move the lenses or control the Laser intensity, we relied on Espressife EPS32
 
 Along with the 3D printed parts in the Github-repository, you need a set of mechanical, electrical and optical parts summarized in the BOM below:
 
-***Dead Link?***: Ebay is not really a reliable source since resellers may discontinue the product. In case you're looking for a component which can not be found, file an issue [here](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/) - alternatively: Copy the name under "Details" and search for it in Ebay. (E.g. "3450 300mW 637nm Dot Laser Module TTL/analog 12VDC" site:laserlands.net) Good luck 🍀 
+***Dead Link?***: Ebay is not really a reliable source since resellers may discontinue the product. In case you're looking for a component which can not be found, file an issue [here](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/) - alternatively: Copy the name under "Details" and search for it in Ebay. (E.g. "3450 300mW 637nm Dot Laser Module TTL/analog 12VDC" site:laserlands.net) Good luck 🍀
 
 Amazon is more reliable, but personally we try to avoid ordering there (Sorry..). We try to update the list with Amazon links
 
@@ -99,19 +129,19 @@ Amazon is more reliable, but personally we try to avoid ordering there (Sorry..)
 | Screws | M3 DIN912 Hex-Key Screws, *HINT:* screws need to be ferro-magnetic (i.e. galvanized!), M3 DIN912 at various lenght may work; we usually have tons of them from the [@openUC2](youseetoo.org)-Project | 10 € | [Amazon](https://www.amazon.de/Zylinder-Innensechskant-Schraube-Vollgewinde-verzinkt/dp/B01MRNRJDZ/ref=sr_1_2_sspa?dchild=1&keywords=m3+schrauben+verzinkt&qid=1599391871&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFHWEMzTTZXM1kzMVUmZW5jcnlwdGVkSWQ9QTA2MTcwNzQzQ1ZHWUs1Rk1QUTRSJmVuY3J5cHRlZEFkSWQ9QTA1OTgyNTNPOU1KSzFaQlVIOEQmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl)  |
 | Micrometer Screw | RS Electronic 0,1 mm resolution | 40 € | [RS Electronics](https://de.rs-online.com/web/p/mikrometer/7857878/?cm_mmc=DE-PLA-DS3A-_-google-_-PLA_DE_DE_Mess-_und_Pr%C3%BCftechnik_Whoop-_-(DE:Whoop%21)+Mikrometer-_-7857878&matchtype=&pla-342919224201&gclid=Cj0KCQiA962BBhCzARIsAIpWEL0P7-vfA1X5h5AeTN2rp-olhvvnkT95evhjPH9cdIwxzO4EtaosYrkaAvGXEALw_wcB&gclsrc=aw.ds)  |
 
-***ATTENTION:*** In case any parts are missing, please file an issue or contact us! We are happy to help out and to improve 😊 
+***ATTENTION:*** In case any parts are missing, please file an issue or contact us! We are happy to help out and to improve 😊
 
 
-# Software 
+# Software
 
 As the software we relied on three different APPs for recent Android phones (in our case Huawei P20 Pro).
 
 Briefly summarized and in-detail described below:
 
-|  Name | Purpose  |  Source  | 
-|  STORM-Controler | Remote control (MQTT) to control things like laser intensity, coupling lens, focus  |  [APP: STORM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)  | 
-|  STORM-Imager | Control long-term image acquisition by enabling auto-focus and auto-coupling, schedule fluctuating intensity measurements inside incubators   |   [APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)  | 
-|  FreeDCam | Full control over the cellphones camera: RAW and video image acquisition |   [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) | 
+|  Name | Purpose  |  Source  |
+|  STORM-Controler | Remote control (MQTT) to control things like laser intensity, coupling lens, focus  |  [APP: STORM-Controler](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p/tree/master/ANDROID/STORM-Controller)  |
+|  STORM-Imager | Control long-term image acquisition by enabling auto-focus and auto-coupling, schedule fluctuating intensity measurements inside incubators   |   [APP: STORM-Imager](https://github.com/beniroquai/dSTORM-on-a-Chi-ea-p-ANDROID)  |
+|  FreeDCam | Full control over the cellphones camera: RAW and video image acquisition |   [FreeDCam](https://github.com/beniroquai/FreeDcam/tree/cellstorm) |
 |  ImJoy Fiji.JS Learn2Sofi | Fiji.JS Plugin to process temporal stacks made by Wei @ ImJoy | [![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#) |
 
 ## Android APP: STORM-Controler
@@ -161,7 +191,7 @@ To stream the data to a server [this manual](https://github.com/beniroquai/FreeD
 
 Many thanks to [@Killerink](https://github.com/KillerInk/) to make this work!
 
-### Settings for FreeDCam (Huawei P20 Pro) 
+### Settings for FreeDCam (Huawei P20 Pro)
 
 We used the following settings:
 
@@ -207,7 +237,7 @@ It is part of the APP "STORM-Imager" and can be used as an interactive website (
 
 ### Live-Demo using Webcam
 
-We implemented a live-demo of the pre-trained SOFI-network which is available [here](./STORMjs/index.html). It runs in Javascript and does not transfer any (!) data to the internet. It runs locally once the model of the neural network is downloaded. 
+We implemented a live-demo of the pre-trained SOFI-network which is available [here](./STORMjs/index.html). It runs in Javascript and does not transfer any (!) data to the internet. It runs locally once the model of the neural network is downloaded.
 
 ***Note:*** It's in an experimental stage. It's not optimized for performance. We do not guarantee for proper functionality. Use it on your own risk!
 
@@ -215,13 +245,13 @@ We implemented a live-demo of the pre-trained SOFI-network which is available [h
 <img src="./images/cellstorm_tensoflowjs_screenshot.png" width="500">
 </p>
 
-The model was tested on a Macbook Pro using a Chrome browser which runs at *~1fps*. 
+The model was tested on a Macbook Pro using a Chrome browser which runs at *~1fps*.
 
 
-### ImJoy Plugin 
+### ImJoy Plugin
 [![launch ImJoy](https://imjoy.io/static/badge/launch-imjoy-badge.svg)](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#)
 
-Wei made an awesome plugin for the browser-based FiJi which encapsulates the Javascript LiveDemo into a Fiji.JS applet. Very easy to use and beware: No installation necessary!! 
+Wei made an awesome plugin for the browser-based FiJi which encapsulates the Javascript LiveDemo into a Fiji.JS applet. Very easy to use and beware: No installation necessary!!
 
 Go to the [ImJoy-Plugin Webpage](https://ij.imjoy.io/?plugin=https://gist.github.com/oeway/11cc4c3eea5646ec41e0c7a7a1957023&open=https://raw.githubusercontent.com/beniroquai/dSTORM-on-the-chea-i-p-Learn2Fluct/master/TF2_KERAS/testdata/03_measurment_ecoli_sofi_timeseries_txy.tif#)
 
@@ -252,13 +282,13 @@ EnJoy! :-)
 
 
 
-# Datasets 
+# Datasets
 
 We provide many datasets in a publicly accessible repository. Please have a look at [ZENODO]() [***Comming Soon - need to wait for all data first***]
 
-***Note:*** Not all the experiments are fully documented. If you need additional experimental parameters, please don't hesitate to get back to us so that we can add this! 
+***Note:*** Not all the experiments are fully documented. If you need additional experimental parameters, please don't hesitate to get back to us so that we can add this!
 
-# Tutorials 
+# Tutorials
 
 ## Video Tutorials to setup the cellSTORM device
 
