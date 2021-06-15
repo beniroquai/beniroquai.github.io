@@ -1,32 +1,3 @@
-# High throughput for openUC2 - Hi2
-
-A low-cost high-throughput microscope for multi-well plate scanning inside the opentrons pipetting robot.
-
----
-
-## Preprint
-
-The preprint for the *Hi2* system can be found on [**BIORXIV**]() 😊
-
-Main features:
-
-```
-- Large-scale well plate scanning microscope (standalone, UC2-based)
-- Open imaging platform for high-throughput experiments
-- GRBL-based motor and Laser controler
-- OpenFlexure Server-based GUI and control software
-- ImJoy-based image processing system (with ImageJ.js)
-- Sample protocols to control the OFM microscope with ImJoy and Opentrons
-- Long-term experiments with small deviations of the FOV
-- Autofocus, scanning, fluorescence microscopy
-- costs <1000€ (for single-wavelength imaging)
-```
-
-
-<p align="center">
-<img src="./Hi2/images/main.png" width="500">
-</p>
-
 
 # cellSTORM 2
 

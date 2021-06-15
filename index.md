@@ -1,10 +1,29 @@
 # Suporting Microscpy using Open-Source Hard- and Software Tools
 
-Here you can find a list of our open-source tools to realize all kinds of microscopic imaging. 
+Here you can find a list of our open-source tools to realize all kinds of microscopic imaging.
+
+
+## High throughput for openUC2 - Hi2
+
+A low-cost high-throughput microscope for multi-well plate scanning inside the opentrons pipetting robot.
+
+<p align="center">
+<img src="./Hi2/images/main.png" width="600">
+</p>
+
+
+📃[DOI: 10.1038/s41467-020-19447-9](https://doi.org/10.1038/s41467-020-19447-9)
+
+🔬[Github:bionanoimaging/UC2-Hi2](https://github.com/openUC2/UC2-Hi2/)
+
+🎬[Youtube:openUC2](https://www.youtube.com/watch?v=M_oqieogAOo&t=5s&ab_channel=openUC2)
+
+
+
 
 ## UC2 - A Versatile Optical Toolbox
 
-Open-source optical toolbox for low-end to high-end microscopy. Have an idea? We would be keen to realize it! 
+Open-source optical toolbox for low-end to high-end microscopy. Have an idea? We would be keen to realize it!
 
 <p align="center">
 <img src="./images/you-see-too-baukasten.png" width="400">
