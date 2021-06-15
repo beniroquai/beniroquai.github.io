@@ -12,7 +12,8 @@ A low-cost high-throughput microscope for multi-well plate scanning inside the o
 </p>
 
 
-📃[DOI: 10.1038/s41467-020-19447-9](https://doi.org/10.1038/s41467-020-19447-9)
+
+📃[Webpage](./Hi2/)
 
 🔬[Github:bionanoimaging/UC2-Hi2](https://github.com/openUC2/UC2-Hi2/)
 
