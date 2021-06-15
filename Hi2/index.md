@@ -93,7 +93,7 @@ We rely on a commercially available open-source CNC/3D printing board [Makerbase
 The UC2-based microscope relies on a wide-field fluorescence microscope, where a fiber-coupled laser diode provides a suitable excitation field for AF647 dyes. The objective lens can easily be moved using the NEMA motor driven Z-stage
 
 <p align="center">
-<img src="./IMAGES/setup_1.png" width="700">
+<img src="./images/setup_1.png" width="700">
 </p>
 
 
