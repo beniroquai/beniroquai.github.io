@@ -51,17 +51,6 @@ A rough schematic of how the different components interact with each other is il
 
 
 
-## Subsystem: ImJoy -
-
-<p align="center">
-<img src="https://github.com/imjoy-team/ImJoy/raw/master/docs/assets/imjoy-overview.jpg" width="500">
-</p>
-
-## Subsystem: Opentrons OT2
-
-<p align="center">
-<img src="https://opentrons.com/static/NGS-Library-Prep@2x-d0ab4c4b02a5a86d5d2048a41e2641e1.png" width="300">
-</p>
 
 ## Subsystem: OpenFlexure Server
 
@@ -130,53 +119,64 @@ As a dichroic mirror we use Comar IY740 + a suitable emission filter (number wil
 
 # Software
 
-GOAL:
-
 ## Nvidia Jetson Nano
 
-### Prerequirements
+We will provide a ready-to-use SD-card image for quick-starting the OFM Server on the Nvidia Jetson. The process to install all the dependencies is quite lengthy, especially since one has to compile OpenCV for Python3.7 to get the Allied Vision Cameras to work.
 
-### Installation
+***TODO:*** Add the jetson image to Zenodo
 
-### Testing
+If you want to get it run on another machine or want to go through the process yourself, please find an in-depth documentation in the forked [OFM-Server repository](https://gitlab.com/beniroquai/openflexure-microscope-server/-/tree/opentrons-grbl)
 
+Once it's installed, you can use git to always pull the latest version
 
-## Opentrons OT2
+## ImJoy
 
-GOAL:
-
-### Prerequirements
-
-### Installation
-
-### Testing
-
-## OpenFlexure Microscope (Server/GUI)
-
-### Step-by-step: GUI
-
-
-
-
-## ImJoy inside Opentrons' Jupyter Notebook
+<p align="center">
+<img src="https://github.com/imjoy-team/ImJoy/raw/master/docs/assets/imjoy-overview.jpg" width="500">
+</p>
 
 Please refer to the comprehensive guid in the [ImJoy subpage](./imjoy.md)
 
-## Setting up
+## Opentrons OT2
 
-## Jupyter Notebook
+<p align="center">
+<img src="https://opentrons.com/static/NGS-Library-Prep@2x-d0ab4c4b02a5a86d5d2048a41e2641e1.png" width="300">
+</p>
 
-## REsults
+The Opentrons OT2 runs on a Raspberry Pi and hosts a number of ways to interact with it. The simplest one is to access it through its Jupyter Notebooks since it also provides a Terminal for installing external Python packages e.g.  
 
-# OFM as the master
+We suggest to copy/upload all the code in the folder [Jupyter Notebooks](https://github.com/openUC2/UC2-Hi2/tree/master/JUPYTER) to the opentrons Jupyter Server by simply uploading it in the browser.
 
-Purpose
+For the code to properly run we need to install some packages through pip. Since the OT2 comes with a partially read-only file system which does not allow any compiling of additional libraries, we were very limited in the variety of the different libraries. Therefore we do all image processing through ImJoy for example. Libraries such as `matplotlib` or `pillow` are not installed.
 
-## Setting up
+In case of problems, it can help to install pip packages using
+```py
+pip install -u PACKAGENAME
+```
+to avoid any conflict with privileges. Installing packages can either be done with an active internet connection of by sideloading ZIP files from github repositoreis and unzipping them through the terminal. The path where the opentrons will upload them is in `/var/lib/Jupyter/Notebooks`. ***TODO:*** Check if this is valid!
 
-## Jupyter Notebook
+The following packages are needed:
+```
+requesets
+asyncio-python
+asyncio-newest
+imjoy-rpc
+imjoy-jupyter-notebook
+```
 
-## REsults
+For a more comprehensive set of instructions can be found in the [ImJoy subpage](./imjoy.md).
+
+
+## OpenFlexure Microscope (Server/GUI)
+
+More information about the Openfelxure Microscope server can also be found on their webpage
+
+Additiolly we give some more information about installing it on a Raspberry Pi and [here](https://github.com/beniroquai/Opentrons-Microscope-Platereader).
+
+### Using ImJoy inside Opentrons' Jupyter Notebook
+
+Therefore you can use the OFM Pyclient. Please have a look [here](https://gitlab.com/openflexure/openflexure-microscope-pyclient/-/blob/master/openflexure_microscope_client/microscope_client.py)
+
 
 
 
