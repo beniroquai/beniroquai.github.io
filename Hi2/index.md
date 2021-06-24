@@ -27,6 +27,7 @@ This project features:
 In the manuscript we present two different setups. A dedicated github repository for the self-contained XYZt scanning microscope for the Opentrons (i.e. ***OpenMicroTrons***) can be found [here](https://github.com/beniroquai/Opentrons-Microscope-Platereader).
 
 Below you will find in-depth explanation for the Hi2 openUC2-based well-scanning microscope.
+***IMPORTANT:*** More information can be found in our [UC2-Hi2 repository](https://github.com/openUC2/UC2-Hi2).
 
 <p align="center">
 <img src="./images/main.png" width="700">
@@ -116,6 +117,9 @@ As a dichroic mirror we use Comar IY740 + a suitable emission filter (number wil
 
 ***ATTENTION:*** In case any parts are missing, please file an issue or contact us! We are happy to help out and to improve 😊
 
+### Design-files
+
+All design files for Autodesk Inventor 2019 Student Edition can be found in the [openUC2 Hi2 repository](https://github.com/openUC2/UC2-Hi2/tree/master/INVENTOR).
 
 # Software
 
