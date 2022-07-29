@@ -3,13 +3,13 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-07-28T23:46:05+02:00",
+  "updated": "2022-07-29T15:05:56+02:00",
   "id": "uc2-tutorial-minibox",
-  "duration": 8,
+  "duration": 24,
   "title": "UC2 Anleitung für die miniBOX",
   "authors": "Benedict",
   "summary": "UC2 Anleitung für die miniBOX",
-  "source": "site/codelabs/UC2_Tutorial_1.md",
+  "source": "UC2_Tutorial_1.md",
   "theme": "",
   "status": [
     "published"
