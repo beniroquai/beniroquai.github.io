@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-08-12T10:52:27+02:00",
+  "id": "uc2-tutorial-minibox2",
+  "duration": 62,
+  "title": "UC2 Anleitung für die miniBOX",
+  "authors": "Benedict",
+  "summary": "UC2 Anleitung für die miniBOX",
+  "source": "/Users/bene/Downloads/googlecodelabs-tools/site/codelabs/UC2_Tutorial_2.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "minibox part ii"
+  ],
+  "tags": [
+    "minibox"
+  ],
+  "feedback": "https://youseetoo.org",
+  "url": "uc2-tutorial-minibox2"
+}
